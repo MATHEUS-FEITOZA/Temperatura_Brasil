@@ -11,7 +11,7 @@ const CarregarPagina = async() => {
     caixas.forEach(item => {
         item.classList.toggle("hidden");
     });
-    document.getElementById("spinner_1").classList.toggle("hidden");
+    document.getElementById("spinner_1").classList.toggle("hidden");// loading
 }
 
 const api = {
@@ -21,13 +21,13 @@ const api = {
     units: "metric"
 }
 const Pesquisar_Cidade = async() => {
-    document.getElementById("spinner").classList.toggle("hidden");
+    document.getElementById("spinner").classList.toggle("hidden"); // loading
     let cidade = document.getElementById("cidade").value;
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&units=${api.units}&APPID=${api.key}`;
     let promessa = await fetch(url);
     let dados = await promessa.json();
     PreencherDados(dados);
-    document.getElementById("spinner").classList.toggle("hidden");
+    document.getElementById("spinner").classList.toggle("hidden");// loading
 }
 
 const PreencherDados = (dados) => {
